@@ -1,0 +1,6 @@
+#!/bin/bash
+
+open -a /Applications/Tor\ Browser.app/
+echo Minimizing Tor Browser
+  osascript tell application "Tor Browser" set miniaturized of window 1 to true
+ 
