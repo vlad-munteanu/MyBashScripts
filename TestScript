@@ -1,0 +1,4 @@
+#!/bin/bash
+open /Applications/iTerm.app
+open /Applications/Utilities/Terminal.app
+
