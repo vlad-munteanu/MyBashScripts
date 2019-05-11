@@ -1,4 +1,7 @@
 #!/bin/bash
 
-python ~/Documents/USBSSH/tcprelay.py -t 22:2222
-ssh root@localhost -p 2222
+
+python ~/Documents/Coding/BashScripts/Resources/iphonessh-master/python-client/tcprelay.py -t 22:2222 &
+osascript -e 'tell application "Terminal" to activate' &
+osascript -e 'tell application "Terminal" to do script "ssh root@localhost -p 2222 "'
+
