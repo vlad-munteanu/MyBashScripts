@@ -1,0 +1,32 @@
+#!/bin/bash
+osascript <<EOD
+set firstNameList to {}
+set lastNameList to {}
+set phoneNumberList to {}
+set counter to "1" as integer
+
+-- prompt for how many contacts to create
+
+
+-- populate the address book
+tell application "Address Book"
+    set theGroup to make new group with properties {name:"Test"}
+    repeat with numberOfEntries from 1 to number of items in firstNameList
+        set firstName to (item numberOfEntries of firstNameList)
+        set lastName to (item numberOfEntries of lastNameList)
+        set thePerson to make new person with properties {first name:firstName, last name:lastName}
+        try
+       set (label of first phone) of thePerson to "Work"
+       set (value of first phone) of thePerson to (item numberOfEntries of phoneNumberList)
+   on error
+       tell thePerson
+
+           make new phone at end of phones with properties {label:"Work", value: (item numberOfEntries of phoneNumberList)}
+       end tell
+   end try
+        add thePerson to theGroup
+        set counter to counter + 1
+    end repeat
+    save
+end tell
+EOD
