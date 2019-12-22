@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd /Volumes/boot 
+
+echo 'Enabling SSH'
+touch /Volumes/boot/ssh
+
+echo 'Editing config.txt'
+echo "dtoverlay=dwc2" >> /Volumes/boot/config.txt 
+
+echo 'Editing cmdline.txt'
+echo "IDK how to do this automatically so we'll do it manually"
+echo "Copy this after rootwait: modules-load=dwc2,g_ether"
+read -p "Press enter to continue"
+vim /Volumes/boot/cmdline.txt
+
+
