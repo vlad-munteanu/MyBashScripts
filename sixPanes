@@ -1,0 +1,9 @@
+#!/bin/zsh
+tmux split-window -v -p 50
+tmux split-window -h -t 0 -p 33 
+tmux split-window - h -t 0 -p 33 
+
+tmux split-window - h -t 1 -p 33 
+
+tmux split-window -h -t 2 -p 33
+tmux split-window -h -t 2 -p 33
